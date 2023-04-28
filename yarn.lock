@@ -1501,6 +1501,11 @@
     "@typescript-eslint/types" "5.59.0"
     eslint-visitor-keys "^3.3.0"
 
+"@vicons/ionicons5@^0.12.0":
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/@vicons/ionicons5/-/ionicons5-0.12.0.tgz#c39fda04420dfae3b58053faf8aaf3555253299d"
+  integrity sha512-Iy1EUVRpX0WWxeu1VIReR1zsZLMc4fqpt223czR+Rpnrwu7pt46nbnC2ycO7ItI/uqDLJxnbcMC7FujKs9IfFA==
+
 "@vue/babel-helper-vue-jsx-merge-props@^1.4.0":
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@vue/babel-helper-vue-jsx-merge-props/-/babel-helper-vue-jsx-merge-props-1.4.0.tgz#8d53a1e21347db8edbe54d339902583176de09f2"
@@ -3702,6 +3707,11 @@ flatted@^3.1.0:
   version "3.2.7"
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.2.7.tgz#609f39207cb614b89d0765b477cb2d437fbf9787"
   integrity sha512-5nqDSxl8nn5BSNxyR3n4I6eDmbolI6WT+QqR547RwxQapgjQBmtktdP+HTBb/a/zLsbzERTONyUB5pefh5TtjQ==
+
+flex-layout-attribute@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/flex-layout-attribute/-/flex-layout-attribute-1.0.3.tgz#99113eb1d3e6443c724158d5869549c69bacccf1"
+  integrity sha512-lXf/Hnlov+YF1xaM46kHs1SHdu2AR/3j4jqOTunQwU1zzcdtV8AIEcSjhucJIrhFvb5rQjBPVtEnQtyLReZTGw==
 
 follow-redirects@^1.0.0:
   version "1.15.2"
