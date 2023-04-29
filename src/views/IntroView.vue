@@ -2,16 +2,16 @@
     <div id="intro"
          class="full-screen"
          layout="column center-center"
-         @mousedown="isMouseDown = true"
-         @mouseup="isMouseDown = false"
-         @mouseleave="isMouseDown = false"
-         @mousemove="onMouseMove"
          tabindex="0">
         <IntroViewBackGround id="background"
                              layout="column center-center">
             <h1 id="welcome">{{ msg }}</h1>
-            <h2> X: {{ mouseX }}</h2>
-            <h2> Y: {{ mouseY }}</h2>
+            <!--         @mousedown="isMouseDown = true"-->
+            <!--         @mouseup="isMouseDown = false"-->
+            <!--         @mouseleave="isMouseDown = false"-->
+            <!--         @mousemove="onMouseMove"-->
+            <!--            <h2> X: {{ mouseX }}</h2>-->
+            <!--            <h2> Y: {{ mouseY }}</h2>-->
         </IntroViewBackGround>
     </div>
 </template>
@@ -54,10 +54,6 @@ export default defineComponent({
 #welcome {
   color: white;
   font-size: 2.5rem;
-}
-
-#background {
-  background: black;
 }
 
 h2 {
