@@ -1,10 +1,9 @@
 <template>
-    <div class="full-screen"
+    <div id="content"
          layout="row center-center">
         <div id="content-root"
-             layout="row center-left">
-            <div id="left-bar"
-                 layout="column top-left">
+             layout="row top-left">
+            <div id="left-bar">
                 <div id="avatar-box">
                     <n-avatar round
                               id="avatar"
@@ -30,9 +29,8 @@
                     </div>
                 </div>
             </div>
-
             <div id="pages"
-                 layout="column top-right">
+                 layout="column top-left">
                 <router-view>
 
                 </router-view>
@@ -44,15 +42,16 @@
 <script lang="ts">
 import {defineComponent} from 'vue';
 import {NAvatar, NButton} from "naive-ui";
-// import {CashOutline as CashIcon} from '@vicons/ionicons5';
-import CashOutline from '@vicons/ionicons5/CashOutline'
+import Home from '@vicons/tabler/Home'
+import Friends from '@vicons/tabler/Friends'
+import Archive from '@vicons/tabler/Archive'
+import User from '@vicons/tabler/User'
 
 export default defineComponent({
-    name: 'HomeView',
+    name: 'ContentView',
     components: {
         NAvatar,
-        NButton,
-        CashOutline
+        NButton
     },
     data() {
         return {
@@ -60,22 +59,22 @@ export default defineComponent({
                 {
                     text: "Home",
                     to: "/home",
-                    component: CashOutline
+                    component: Home
                 },
                 {
                     text: "About",
                     to: "/about",
-                    component: CashOutline
+                    component: User
                 },
                 {
                     text: "Friends",
                     to: "/friends",
-                    component: CashOutline
+                    component: Friends
                 },
                 {
                     text: "Archives",
                     to: "/archives",
-                    component: CashOutline
+                    component: Archive
                 },
             ]
         }
@@ -84,14 +83,22 @@ export default defineComponent({
 </script>
 
 <style lang="less" scoped>
+@left-bar-width: 400px;
+@left-bar-height: 700px;
+
+#content {
+  width: 100vw;
+}
+
 #content-root {
   width: 80%;
-  height: 90%;
 
   #left-bar {
     display: inline-block;
-    width: 30%;
-    height: 100%;
+    width: @left-bar-width;
+    height: 100vh;
+    position: sticky;
+    top: 0;
 
     #avatar-box {
       width: 50%;
@@ -125,7 +132,7 @@ export default defineComponent({
 
           .button-icon {
             margin-top: 3px;
-            width: 20px;
+            width: 30px;
             height: 100%;
           }
         }
@@ -135,12 +142,9 @@ export default defineComponent({
 
 
   #pages {
-    display: inline-block;
     width: 100%;
-    height: 100%;
-    border: 5px solid yellow;
+    //border: 5px solid yellow;
   }
 }
-
 
 </style>

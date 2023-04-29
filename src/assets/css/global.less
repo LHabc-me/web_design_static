@@ -1,4 +1,5 @@
 @import 'flex-layout-attribute/css/flex-layout-attribute.min.css';
+@import 'animate.css';
 
 * {
   border: 0;
@@ -12,6 +13,11 @@
   height: 100vh;
 }
 
+.full {
+  width: 100%;
+  height: 100%;
+}
+
 a {
   text-decoration: none;
   outline: none;
@@ -22,3 +28,17 @@ a {
   display: inline-block;
   vertical-align: middle;
 }
+
+//防止滚动条导致的抖动
+html {
+  overflow-y: overlay;
+}
+
+
+//隐藏滚动条
+//html::-webkit-scrollbar {
+//  width: 0 !important;
+//  height: 0;
+//}
+
+//::-webkit-scrollbar { width: 0 !important;height: 0; }

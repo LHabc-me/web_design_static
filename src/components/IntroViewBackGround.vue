@@ -1,6 +1,6 @@
 <template>
-    <div id="intro-background" class="full-screen" layout="row center-center">
-        <canvas id="background" class="full-screen">
+    <div id="intro-background" class="full" layout="row center-center">
+        <canvas id="background" class="full">
 
         </canvas>
         <slot id="content" self="center">
@@ -18,6 +18,11 @@ export default defineComponent({
 </script>
 
 <style lang="less" scoped>
+* {
+  pointer-events: none;
+  user-select: none;
+}
+
 #intro-background {
   position: fixed;
   bottom: 0;
