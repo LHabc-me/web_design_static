@@ -18,7 +18,7 @@
                          :key="index">
                         <n-button quaternary
                                   class="button"
-                                  @click="$router.push(btn.to)">
+                                  @click="$router.push(btn.link)">
                             <n-icon class="button-icon">
                                 <component :is="btn.component as any"/>
                             </n-icon>
@@ -58,22 +58,22 @@ export default defineComponent({
             buttons: [
                 {
                     text: "Home",
-                    to: "/home",
+                    link: "/home",
                     component: Home
                 },
                 {
                     text: "About",
-                    to: "/about",
+                    link: "/about",
                     component: User
                 },
                 {
                     text: "Friends",
-                    to: "/friends",
+                    link: "/friends",
                     component: Friends
                 },
                 {
                     text: "Archives",
-                    to: "/archives",
+                    link: "/archives",
                     component: Archive
                 },
             ]
@@ -88,6 +88,7 @@ export default defineComponent({
 
 #content {
   width: 100vw;
+  background: linear-gradient(rgb(34, 207, 175), white);
 }
 
 #content-root {
@@ -107,6 +108,7 @@ export default defineComponent({
       #avatar {
         width: 100%;
         height: 100%;
+        user-select: none;
       }
     }
 

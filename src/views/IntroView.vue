@@ -1,17 +1,10 @@
 <template>
     <div id="intro"
          class="full-screen"
-         layout="column center-center"
-         tabindex="0">
+         layout="column center-center">
         <IntroViewBackGround id="background"
                              layout="column center-center">
             <h1 id="welcome">{{ msg }}</h1>
-            <!--         @mousedown="isMouseDown = true"-->
-            <!--         @mouseup="isMouseDown = false"-->
-            <!--         @mouseleave="isMouseDown = false"-->
-            <!--         @mousemove="onMouseMove"-->
-            <!--            <h2> X: {{ mouseX }}</h2>-->
-            <!--            <h2> Y: {{ mouseY }}</h2>-->
         </IntroViewBackGround>
     </div>
 </template>
@@ -49,14 +42,9 @@ export default defineComponent({
 </script>
 
 <style lang="less" scoped>
-
-
 #welcome {
   color: white;
   font-size: 2.5rem;
 }
 
-h2 {
-  color: white;
-}
 </style>

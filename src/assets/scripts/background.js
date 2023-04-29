@@ -1,4 +1,4 @@
-export function start(bindComponent) {
+export function start(element) {
     function PointerPrototype() {
         this.id = -1;
         this.texcoordX = 0;
@@ -799,27 +799,11 @@ export function start(bindComponent) {
         let hash = 0;
         for (let i = 0; i < s.length; i++) {
             hash = (hash << 5) - hash + s.charCodeAt(i);
-            hash |= 0; // Convert to 32bit integer
+            hash |= 0;
         }
         return hash;
     }
 
-// Mobile promo section
-    const promoPopup = document.getElementsByClassName('promo')[0];
-    const promoPopupClose = document.getElementsByClassName('promo-close')[0];
-
-    if (isMobile()) {
-        setTimeout(() => {
-            promoPopup.style.display = 'table';
-        }, 20000);
-    }
-
-    promoPopupClose.addEventListener('click', () => {
-        promoPopup.style.display = 'none';
-    });
-
-
-// Simulation section
 
     const canvas = document.getElementById('background-canvas');
     resizeCanvas();
@@ -839,7 +823,7 @@ export function start(bindComponent) {
         COLORFUL: true,
         COLOR_UPDATE_SPEED: 10,
         PAUSED: false,
-        BACK_COLOR: {r: 0, g: 0, b: 0},
+        BACK_COLOR: {r: 34, g: 207, b: 175},
         TRANSPARENT: false,
         BLOOM: true,
         BLOOM_ITERATIONS: 8,
@@ -1473,11 +1457,10 @@ export function start(bindComponent) {
         }
     }
 
-    const div = document.getElementById('intro');
-    div.addEventListener('mousedown', onMouseDown);
-    div.addEventListener('mousemove', onMouseMove);
+    element.addEventListener('mousedown', onMouseDown);
+    element.addEventListener('mousemove', onMouseMove);
     window.addEventListener('mouseup', onMouseUp);
-    div.addEventListener('touchstart', onTouchStart);
-    div.addEventListener('touchmove', onTouchMove);
+    element.addEventListener('touchstart', onTouchStart);
+    element.addEventListener('touchmove', onTouchMove);
     window.addEventListener('touchend', onTouchEnd);
 }
