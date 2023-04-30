@@ -1,9 +1,27 @@
 <template>
-    <h1>Archives</h1>
+    <div>
+        <h1>Archives</h1>
+        <button v-for="(item, index) in archives"
+                :key="index"
+                @click="$router.push('/archives/' + item.name)">
+            click me
+        </button>
+    </div>
 </template>
 
-<script lang="ts">
-import {defineComponent} from 'vue'
+<script>
 
-export default defineComponent({})
+export default {
+    setup() {
+        return {
+            archives: [
+                {
+                    name: 'archiveone',
+                    title: '',
+                    brief: ''
+                }
+            ]
+        }
+    }
+}
 </script>

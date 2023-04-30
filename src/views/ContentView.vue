@@ -11,7 +11,7 @@
                     </n-avatar>
                 </div>
                 <div id="my-name">
-                    <h1>LHabc</h1>
+                    <p>LHabc</p>
                 </div>
                 <div id="left-bar-connections"
                      layout="row center-center">
@@ -48,32 +48,41 @@
                  layout="column top-left">
                 <transition name="fade"
                             mode="out-in">
-                    <router-view/>
+                    <router-view v-slot="{ Component }">
+                        <keep-alive>
+                            <component :is="Component"/>
+                        </keep-alive>
+                    </router-view>
                 </transition>
             </div>
         </div>
+        <n-back-top id="content-back-top"
+                    :right="40"
+                    :bottom="40">
+        </n-back-top>
+
     </div>
 </template>
 
 <script>
-import {NAvatar, NButton} from "naive-ui";
+import {NAvatar, NButton, NBackTop} from "naive-ui";
 import Home from '@vicons/tabler/Home'
 import Friends from '@vicons/tabler/Friends'
 import Archive from '@vicons/tabler/Archive'
 import User from '@vicons/tabler/User'
 import LogoGithub from "@vicons/ionicons5/LogoGithub";
 import MailOutline from "@vicons/ionicons5/MailOutline";
+import {goUrl} from "@/assets/scripts/util";
 
 export default {
     name: 'ContentView',
     components: {
         NAvatar,
-        NButton
+        NButton,
+        NBackTop
     },
     methods: {
-        goUrl(link) {
-            window.open(link, '_blank')
-        }
+        goUrl
     },
     setup() {
         return {
@@ -122,7 +131,7 @@ export default {
 
 #content {
   width: 100vw;
-  background: linear-gradient(rgb(34, 207, 175), white);
+  background: linear-gradient(#1abc9c, white);
 }
 
 #content-root {
@@ -137,10 +146,10 @@ export default {
 
     #my-name {
       user-select: none;
-    }
-
-    h1 {
-      text-align: center
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin-bottom: 5px;
     }
 
     #avatar-box {
@@ -190,10 +199,12 @@ export default {
   }
 }
 
+#content-back-top {
+}
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 2s;
+  transition: opacity 1s ease;
 }
 
 .fade-leave-from,

@@ -16,10 +16,6 @@
 import {NConfigProvider, NThemeEditor, darkTheme} from 'naive-ui';
 import {zhCN, dateZhCN} from 'naive-ui'
 
-/**
- * js 文件下使用这个做类型提示
- * @type import('naive-ui').GlobalThemeOverrides
- */
 const themeOverrides = {
     common: {
         "primaryColor": "#2080f0FF",

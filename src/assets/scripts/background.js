@@ -823,7 +823,7 @@ export function start(element) {
         COLORFUL: true,
         COLOR_UPDATE_SPEED: 10,
         PAUSED: false,
-        BACK_COLOR: {r: 34, g: 207, b: 175},
+        BACK_COLOR: {r: 26, g: 188, b: 156},
         TRANSPARENT: false,
         BLOOM: true,
         BLOOM_ITERATIONS: 8,
@@ -1420,7 +1420,6 @@ export function start(element) {
     }
 
     function onTouchStart(e) {
-        e.preventDefault();
         const touches = e.targetTouches;
         while (touches.length >= pointers.length) {
             pointers.push(new PointerPrototype());
@@ -1433,7 +1432,6 @@ export function start(element) {
     }
 
     function onTouchMove(e) {
-        e.preventDefault();
         const touches = e.targetTouches;
         for (let i = 0; i < touches.length; i++) {
             let pointer = pointers[i + 1];

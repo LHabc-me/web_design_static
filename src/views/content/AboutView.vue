@@ -2,20 +2,16 @@
     <div>
         <h1>About</h1>
         <n-h1 prefix="bar">
-            <n-text class="title">
-                关于我
-            </n-text>
+            关于我
         </n-h1>
 
-        <n-text class="text">
+        <n-text>
             吉林大学软件学院大二学生
         </n-text>
 
 
         <n-h1 prefix="bar">
-            <n-text class="title">
-                关于此博客
-            </n-text>
+            关于此博客
         </n-h1>
     </div>
 </template>
@@ -39,12 +35,11 @@ export default {
 
 
 <style scoped>
-.text,
-.title {
+h1 {
     color: black;
 }
 
-.text {
+text {
     font-size: 1.5rem;
 }
 </style>

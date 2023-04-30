@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "@vicons/ionicons5": "^0.12.0",
-    "animate.css": "^4.1.1",
     "core-js": "^3.8.3",
     "flex-layout-attribute": "^1.0.3",
     "register-service-worker": "^1.7.2",

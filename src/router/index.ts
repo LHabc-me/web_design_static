@@ -27,7 +27,13 @@ const routes: Array<RouteRecordRaw> = [
                 path: '/archives',
                 name: 'archives',
                 component: () => import('@/views/content/ArchivesView.vue'),
+                children: []
             },
+            {
+                path: '/archives/archiveone',
+                name: 'ArchiveOne',
+                component: () => import('@/views/content/Archives/ArchiveOne.vue'),
+            }
         ]
     },
     {
@@ -43,7 +49,9 @@ const routes: Array<RouteRecordRaw> = [
 
 const router = createRouter({
     history: createWebHashHistory(process.env.BASE_URL),
-    routes
+    routes,
 })
 
 export default router
+
+
