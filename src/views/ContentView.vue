@@ -10,17 +10,32 @@
                               src="img/lhabc.jpg">
                     </n-avatar>
                 </div>
+                <div id="my-name">
+                    <h1>LHabc</h1>
+                </div>
+                <div id="left-bar-connections"
+                     layout="row center-center">
+                    <n-button circle
+                              :bordered="false"
+                              v-for="(item, index) in connections"
+                              :key="index"
+                              @click="goUrl(item.link)">
+                        <n-icon class="button-icon">
+                            <component :is="item.icon"/>
+                        </n-icon>
+                    </n-button>
+                </div>
                 <div id="buttons-box"
-                     layout="column center-center">
+                     layout="column top-center">
                     <div class="button-container"
                          layout="row center-center"
-                         v-for="(btn,index) of buttons"
+                         v-for="(btn, index) in viewBtns"
                          :key="index">
                         <n-button quaternary
                                   class="button"
                                   @click="$router.push(btn.link)">
                             <n-icon class="button-icon">
-                                <component :is="btn.component as any"/>
+                                <component :is="btn.icon"/>
                             </n-icon>
                             <strong class="button-text">
                                 {{ btn.text }}
@@ -31,55 +46,74 @@
             </div>
             <div id="pages"
                  layout="column top-left">
-                <router-view>
-
-                </router-view>
+                <transition name="fade"
+                            mode="out-in">
+                    <router-view/>
+                </transition>
             </div>
         </div>
     </div>
 </template>
 
-<script lang="ts">
-import {defineComponent} from 'vue';
+<script>
 import {NAvatar, NButton} from "naive-ui";
 import Home from '@vicons/tabler/Home'
 import Friends from '@vicons/tabler/Friends'
 import Archive from '@vicons/tabler/Archive'
 import User from '@vicons/tabler/User'
+import LogoGithub from "@vicons/ionicons5/LogoGithub";
+import MailOutline from "@vicons/ionicons5/MailOutline";
 
-export default defineComponent({
+export default {
     name: 'ContentView',
     components: {
         NAvatar,
         NButton
     },
-    data() {
+    methods: {
+        goUrl(link) {
+            window.open(link, '_blank')
+        }
+    },
+    setup() {
         return {
-            buttons: [
+            connections: [
+                {
+                    name: "Github",
+                    icon: LogoGithub,
+                    link: "https://github.com/LHabc-me"
+                },
+                {
+                    name: "E-mail",
+                    icon: MailOutline,
+                    link: "mailto:LHabc.me@outlook.com"
+                }
+            ],
+            viewBtns: [
                 {
                     text: "Home",
                     link: "/home",
-                    component: Home
+                    icon: Home
                 },
                 {
                     text: "About",
                     link: "/about",
-                    component: User
+                    icon: User
                 },
                 {
                     text: "Friends",
                     link: "/friends",
-                    component: Friends
+                    icon: Friends
                 },
                 {
                     text: "Archives",
                     link: "/archives",
-                    component: Archive
+                    icon: Archive
                 },
             ]
         }
     }
-});
+}
 </script>
 
 <style lang="less" scoped>
@@ -101,6 +135,14 @@ export default defineComponent({
     position: sticky;
     top: 0;
 
+    #my-name {
+      user-select: none;
+    }
+
+    h1 {
+      text-align: center
+    }
+
     #avatar-box {
       width: 50%;
       margin: 10% auto auto auto;
@@ -115,7 +157,7 @@ export default defineComponent({
     #buttons-box {
       width: 80%;
       height: 50%;
-      margin: 10% auto auto auto;
+      margin: 20px auto auto;
 
       .button-container {
         width: 70%;
@@ -131,12 +173,6 @@ export default defineComponent({
             width: 100px;
             height: 100%;
           }
-
-          .button-icon {
-            margin-top: 3px;
-            width: 30px;
-            height: 100%;
-          }
         }
       }
     }
@@ -145,8 +181,30 @@ export default defineComponent({
 
   #pages {
     width: 100%;
-    //border: 5px solid yellow;
+  }
+
+  .button-icon {
+    margin-top: 3px;
+    width: 30px;
+    height: 100%;
   }
 }
+
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 2s;
+}
+
+.fade-leave-from,
+.fade-enter-to {
+  opacity: 1;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
 
 </style>

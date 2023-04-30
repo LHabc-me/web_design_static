@@ -1,14 +1,38 @@
 <template>
-    <div id="app">
-        <router-view></router-view>
-    </div>
+    <n-config-provider :theme-overrides="themeOverrides"
+                       :locale="locale"
+                       :date-locale="dateLocale">
+        <!--        <n-theme-editor>-->
+        <div id="app">
+            <router-view></router-view>
+        </div>
+        <!--        </n-theme-editor>-->
+    </n-config-provider>
+
 </template>
 
 
 <script>
+import {NConfigProvider, NThemeEditor, darkTheme} from 'naive-ui';
+import {zhCN, dateZhCN} from 'naive-ui'
 
-
+/**
+ * js 文件下使用这个做类型提示
+ * @type import('naive-ui').GlobalThemeOverrides
+ */
+const themeOverrides = {
+    common: {
+        "primaryColor": "#2080f0FF",
+        "primaryColorHover": "#4098FCFF",
+        "primaryColorPressed": "#1060C9FF",
+        "primaryColorSuppl": "#4098FCFF"
+    }
+}
 export default {
+    components: {
+        NConfigProvider,
+        // NThemeEditor
+    },
     methods: {
         tryHideScroll() {
             if (this.rule !== -1) {
@@ -38,11 +62,15 @@ export default {
         this.tryHideScroll();
         window.addEventListener('scroll', this.listenScroll);
     },
-    data() {
+    setup() {
         return {
             rule: -1,
             styleTag: document.createElement('style'),
             styleSheet: null,
+            themeOverrides,
+            locale: zhCN,
+            dateLocale: dateZhCN,
+            darkTheme
         }
     }
 }

@@ -30,7 +30,7 @@ export default defineComponent({
             console.log(event.key)
         }
     },
-    data() {
+    setup() {
         return {
             msg: "𝓦𝓮𝓵𝓬𝓸𝓶𝓮",
             mouseX: 0,
