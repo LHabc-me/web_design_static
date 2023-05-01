@@ -1,4 +1,6 @@
-export function start(element) {
+import {getMousePosition} from "@/assets/scripts/util";
+
+function start(element) {
     function PointerPrototype() {
         this.id = -1;
         this.texcoordX = 0;
@@ -1396,6 +1398,9 @@ export function start(element) {
 
 
     function onMouseDown(e) {
+        if (getMousePosition(e).y >= window.innerHeight) {
+            return;
+        }
         let posX = scaleByPixelRatio(e.offsetX);
         let posY = scaleByPixelRatio(e.offsetY);
         let pointer = pointers.find(p => p.id === -1);
@@ -1406,6 +1411,9 @@ export function start(element) {
     }
 
     function onMouseMove(e) {
+        if (getMousePosition(e).y >= window.innerHeight) {
+            return;
+        }
         let pointer = pointers[0];
         if (!pointer.down) {
             return;
@@ -1415,11 +1423,17 @@ export function start(element) {
         updatePointerMoveData(pointer, posX, posY);
     }
 
-    function onMouseUp() {
+    function onMouseUp(e) {
+        if (getMousePosition(e).y >= window.innerHeight) {
+            return;
+        }
         updatePointerUpData(pointers[0]);
     }
 
     function onTouchStart(e) {
+        if (getMousePosition(e).y >= window.innerHeight) {
+            return;
+        }
         const touches = e.targetTouches;
         while (touches.length >= pointers.length) {
             pointers.push(new PointerPrototype());
@@ -1432,6 +1446,9 @@ export function start(element) {
     }
 
     function onTouchMove(e) {
+        if (getMousePosition(e).y >= window.innerHeight) {
+            return;
+        }
         const touches = e.targetTouches;
         for (let i = 0; i < touches.length; i++) {
             let pointer = pointers[i + 1];
@@ -1445,6 +1462,9 @@ export function start(element) {
     }
 
     function onTouchEnd(e) {
+        if (getMousePosition(e).y >= window.innerHeight) {
+            return;
+        }
         const touches = e.changedTouches;
         for (let i = 0; i < touches.length; i++) {
             let pointer = pointers.find(p => p.id === touches[i].identifier);
@@ -1462,3 +1482,5 @@ export function start(element) {
     element.addEventListener('touchmove', onTouchMove);
     window.addEventListener('touchend', onTouchEnd);
 }
+
+export {start}

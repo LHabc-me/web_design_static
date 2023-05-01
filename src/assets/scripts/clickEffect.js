@@ -1,3 +1,5 @@
+import {getMousePosition} from "@/assets/scripts/util";
+
 function clickEffect() {
     let balls = [];
     let longPressed = false;
@@ -31,8 +33,6 @@ function clickEffect() {
             if (!enable(e)) {
                 return;
             }
-
-            pushBalls(randBetween(10, 20), e.clientX, e.clientY);
             document.body.classList.add("is-pressed");
             longPress = setTimeout(function () {
                 document.body.classList.add("is-longpress");
@@ -43,6 +43,7 @@ function clickEffect() {
             if (!enable(e)) {
                 return;
             }
+            pushBalls(randBetween(10, 20), e.clientX, e.clientY);
             clearInterval(longPress);
             if (longPressed === true) {
                 document.body.classList.remove("is-longpress");
@@ -147,25 +148,6 @@ function clickEffect() {
                 balls.splice(i, 1);
             }
         }
-    }
-
-    function getMousePosition(event) {
-        let x = 0, y = 0,
-            doc = document.documentElement,
-            body = document.body;
-        if (!event) event = window.event;
-        if (window.pageYoffset) {//pageYoffset是Netscape特有
-            x = window.pageXOffset;
-            y = window.pageYOffset;
-        } else {
-            x = (doc && doc.scrollLeft || body && body.scrollLeft || 0)
-                - (doc && doc.clientLeft || body && body.clientLeft || 0);
-            y = (doc && doc.scrollTop || body && body.scrollTop || 0)
-                - (doc && doc.clientTop || body && body.clientTop || 0);
-        }
-        x += event.clientX;
-        y += event.clientY;
-        return {'x': x, 'y': y};
     }
 }
 

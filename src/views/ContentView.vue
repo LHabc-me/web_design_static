@@ -7,7 +7,8 @@
                 <div id="avatar-box">
                     <n-avatar round
                               id="avatar"
-                              src="img/lhabc.jpg">
+                              src="img/lhabc.jpg"
+                              color="transparent">
                     </n-avatar>
                 </div>
                 <div id="my-name">

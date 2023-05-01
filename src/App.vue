@@ -1,7 +1,8 @@
 <template>
     <n-config-provider :theme-overrides="themeOverrides"
                        :locale="locale"
-                       :date-locale="dateLocale">
+                       :date-locale="dateLocale"
+                       :hljs="hljs">
         <!--        <n-theme-editor>-->
         <div id="app">
             <router-view></router-view>
@@ -15,7 +16,12 @@
 <script>
 import {NConfigProvider, NThemeEditor, darkTheme} from 'naive-ui';
 import {zhCN, dateZhCN} from 'naive-ui'
+import hljs from 'highlight.js/lib/core'
+import javascript from 'highlight.js/lib/languages/javascript'
+import bash from 'highlight.js/lib/languages/bash'
 
+hljs.registerLanguage('javascript', javascript);
+hljs.registerLanguage('bash', bash);
 const themeOverrides = {
     common: {
         "primaryColor": "#2080f0FF",
@@ -44,7 +50,7 @@ export default {
             this.rule = -1;
         },
         listenScroll() {
-            const isAtIntroView = window.scrollY < window.innerHeight;
+            const isAtIntroView = window.scrollY <= window.innerHeight + 1;
             if (isAtIntroView) {
                 this.tryHideScroll();
             } else {
@@ -66,7 +72,8 @@ export default {
             themeOverrides,
             locale: zhCN,
             dateLocale: dateZhCN,
-            darkTheme
+            darkTheme,
+            hljs
         }
     }
 }
