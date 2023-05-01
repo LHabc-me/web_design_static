@@ -6,32 +6,17 @@
         <n-h3 prefix="bar">网站结构</n-h3>
         <n-ul>
             <n-li>About：个人简介</n-li>
-            <n-li>Friend：友情简介</n-li>
+            <n-li>Friend：友情链接</n-li>
             <n-li>Archives：日常分享和技术性文章</n-li>
         </n-ul>
 
         <n-h3 prefix="bar">建站所使用的框架和技术</n-h3>
         <n-ul>
-            <n-li>
+            <n-li v-for="(item, index) in frameworks"
+                  :key="index">
                 <n-button text
-                          @click="goUrl('https://cn.vuejs.org/')">
-                    Vue3
-                </n-button>
-            </n-li>
-            <n-li>
-                <n-button text
-                          @click="goUrl('https://www.naiveui.com/')">
-                    Naive UI
-                </n-button>
-            </n-li>
-        </n-ul>
-
-        <n-h3 prefix="bar">首页背景</n-h3>
-        <n-ul>
-            <n-li>
-                <n-button text
-                          @click="goUrl('https://github.com/PavelDoGreat/WebGL-Fluid-Simulation/')">
-                    基于WebGL的流体模拟
+                          @click="goUrl(item.link)">
+                    {{ item.name }}
                 </n-button>
             </n-li>
         </n-ul>
@@ -57,7 +42,26 @@ export default {
         NButton,
     },
     setup() {
-        return {}
+        return {
+            frameworks: [
+                {
+                    name: "Vue3",
+                    link: "https://cn.vuejs.org/"
+                },
+                {
+                    name: "Naive UI",
+                    link: "https://www.naiveui.com/"
+                },
+                {
+                    name: "Less",
+                    link: "https://less.devjs.cn/"
+                },
+                {
+                    name: "基于WebGL的流体模拟",
+                    link: "https://github.com/PavelDoGreat/WebGL-Fluid-Simulation/"
+                }
+            ]
+        }
     }
 }
 </script>

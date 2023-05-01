@@ -19,7 +19,17 @@ export default {
                     name: 'archiveone',
                     title: '',
                     brief: ''
-                }
+                },
+                {
+                    name: 'archivetwo',
+                    title: '',
+                    brief: ''
+                },
+                {
+                    name: 'archivethree',
+                    title: '',
+                    brief: ''
+                },
             ]
         }
     }

@@ -44,7 +44,7 @@ export default {
             this.rule = -1;
         },
         listenScroll() {
-            const isAtIntroView = window.scrollY <= window.screen.height;
+            const isAtIntroView = window.scrollY < window.innerHeight;
             if (isAtIntroView) {
                 this.tryHideScroll();
             } else {

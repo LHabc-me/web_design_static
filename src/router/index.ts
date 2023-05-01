@@ -33,6 +33,16 @@ const routes: Array<RouteRecordRaw> = [
                 path: '/archives/archiveone',
                 name: 'ArchiveOne',
                 component: () => import('@/views/content/Archives/ArchiveOne.vue'),
+            },
+            {
+                path: '/archives/archivetwo',
+                name: 'ArchiveTwo',
+                component: () => import('@/views/content/Archives/ArchiveOne.vue'),
+            },
+            {
+                path: '/archives/archivethree',
+                name: 'ArchiveThree',
+                component: () => import('@/views/content/Archives/ArchiveOne.vue'),
             }
         ]
     },

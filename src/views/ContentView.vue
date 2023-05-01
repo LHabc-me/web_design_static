@@ -73,6 +73,7 @@ import User from '@vicons/tabler/User'
 import LogoGithub from "@vicons/ionicons5/LogoGithub";
 import MailOutline from "@vicons/ionicons5/MailOutline";
 import {goUrl} from "@/assets/scripts/util";
+import {clickEffect} from "@/assets/scripts/clickEffect";
 
 export default {
     name: 'ContentView',
@@ -82,7 +83,9 @@ export default {
         NBackTop
     },
     methods: {
-        goUrl
+        goUrl,
+    }, mounted() {
+        clickEffect()
     },
     setup() {
         return {
