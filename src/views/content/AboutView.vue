@@ -5,14 +5,9 @@
             关于我
         </n-h1>
 
-        <n-text>
+        <text>
             吉林大学软件学院大二学生
-        </n-text>
-
-
-        <n-h1 prefix="bar">
-            关于此博客
-        </n-h1>
+        </text>
     </div>
 </template>
 
@@ -25,7 +20,7 @@ export default {
     name: "AboutView",
     components: {
         NH1,
-        NText,
+        // NText,
     },
     setup() {
         return {}
@@ -35,11 +30,5 @@ export default {
 
 
 <style scoped>
-h1 {
-    color: black;
-}
 
-text {
-    font-size: 1.5rem;
-}
 </style>

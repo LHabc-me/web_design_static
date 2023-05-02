@@ -3,7 +3,8 @@
          layout="row center-center">
         <div id="content-root"
              layout="row top-left">
-            <div id="left-bar">
+            <div id="left-bar"
+                 class="shadow radius">
                 <div id="avatar-box">
                     <n-avatar round
                               id="avatar"
@@ -12,7 +13,7 @@
                     </n-avatar>
                 </div>
                 <div id="my-name">
-                    <p>LHabc</p>
+                    <h1>LHabc</h1>
                 </div>
                 <div id="left-bar-connections"
                      layout="row center-center">
@@ -135,18 +136,26 @@ export default {
 
 #content {
   width: 100vw;
-  background: linear-gradient(#1abc9c, white);
+  //background: linear-gradient(#1abc9c, white);
+  //background: linear-gradient(#1abc9c, white);
+  //background-image: url("@/assets/img/118.jpg");
+  background-size: cover;
+  background: #ecf0f1;
 }
 
 #content-root {
   width: 80%;
+  min-height: 100vh;
+  //background: #ecf0f1;
 
   #left-bar {
     display: inline-block;
     width: @left-bar-width;
-    height: 100vh;
     position: sticky;
     top: 0;
+    margin: 20px;
+    height: 650px;
+    background: white;
 
     #my-name {
       user-select: none;
@@ -174,11 +183,11 @@ export default {
 
       .button-container {
         width: 70%;
-        height: 15%;
+        height: 60px;
         margin: 3% 0;
 
         .button {
-          height: 100%;
+          height: 60px;
           width: 100%;
           font-size: 20px;
 
@@ -194,6 +203,9 @@ export default {
 
   #pages {
     width: 100%;
+    margin-left: 50px;
+    //margin-right: 20px;
+
   }
 
   .button-icon {

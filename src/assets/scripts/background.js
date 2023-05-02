@@ -508,10 +508,10 @@ function start(element) {
             gl.disable(gl.BLEND);
         }
 
-        if (!config.TRANSPARENT)
-            drawColor(target, normalizeColor(config.BACK_COLOR));
-        if (target == null && config.TRANSPARENT)
-            drawCheckerboard(target);
+        // if (!config.TRANSPARENT)
+        //     drawColor(target, normalizeColor(config.BACK_COLOR));
+        // if (target == null && config.TRANSPARENT)
+        //     drawCheckerboard(target);
         drawDisplay(target);
     }
 

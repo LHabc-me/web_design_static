@@ -44,6 +44,11 @@ export default {
   z-index: 1;
 }
 
+canvas {
+  //background-image: url("@/assets/img/118.jpg");
+  //background-size: cover;
+  background: linear-gradient(black, #ecf0f1);
+}
 
 @keyframes promo-appear-animation {
   0% {

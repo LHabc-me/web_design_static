@@ -30,19 +30,19 @@ const routes: Array<RouteRecordRaw> = [
                 children: []
             },
             {
-                path: '/archives/archiveone',
+                path: '/archives/deepin',
                 name: 'ArchiveOne',
                 component: () => import('@/views/content/Archives/ArchiveOne.vue'),
             },
             {
-                path: '/archives/archivetwo',
+                path: '/archives/webassembly',
                 name: 'ArchiveTwo',
-                component: () => import('@/views/content/Archives/ArchiveOne.vue'),
+                component: () => import('@/views/content/Archives/ArchiveTwo.vue'),
             },
             {
-                path: '/archives/archivethree',
+                path: '/archives/cpp-builtin',
                 name: 'ArchiveThree',
-                component: () => import('@/views/content/Archives/ArchiveOne.vue'),
+                component: () => import('@/views/content/Archives/ArchiveThree.vue'),
             }
         ]
     },

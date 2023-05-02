@@ -19,9 +19,12 @@ import {zhCN, dateZhCN} from 'naive-ui'
 import hljs from 'highlight.js/lib/core'
 import javascript from 'highlight.js/lib/languages/javascript'
 import bash from 'highlight.js/lib/languages/bash'
+import cpp from 'highlight.js/lib/languages/cpp'
 
 hljs.registerLanguage('javascript', javascript);
 hljs.registerLanguage('bash', bash);
+hljs.registerLanguage('cpp', cpp);
+
 const themeOverrides = {
     common: {
         "primaryColor": "#2080f0FF",

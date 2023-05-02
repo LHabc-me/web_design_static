@@ -1,10 +1,11 @@
 <template>
     <div>
-        <n-h1>Home</n-h1>
+        <h1>Home</h1>
         <n-h2>欢迎来到LHabc的博客网站！</n-h2>
 
         <n-h3 prefix="bar">网站结构</n-h3>
         <n-ul>
+            <n-li>Home：首页</n-li>
             <n-li>About：个人简介</n-li>
             <n-li>Friend：友情链接</n-li>
             <n-li>Archives：日常分享和技术性文章</n-li>
@@ -33,7 +34,7 @@ export default {
     name: "HomeView",
     methods: {goUrl},
     components: {
-        NH1,
+        // NH1,
         NH2,
         NH3,
         // NH4,
