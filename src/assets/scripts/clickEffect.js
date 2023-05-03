@@ -102,14 +102,15 @@ function clickEffect() {
             normal.x = -2 / window.innerWidth * Math.sin(this.angle);
             normal.y = -2 / window.innerHeight * Math.cos(this.angle);
             this.r -= 0.3;
-            this.vx *= 0.9;
-            this.vy *= 0.9;
+            this.vx *= 0.8;
+            this.vy *= 0.8;
         }
     }
 
     function pushBalls(count = 1, x = origin.x, y = origin.y) {
-        for (let i = 0; i < count; i++) {
+        for (let i = 0; i < count / 2; i++) {
             balls.push(new Ball(x, y));
+            console.log(x, y)
         }
     }
 
