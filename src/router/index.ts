@@ -32,17 +32,17 @@ const routes: Array<RouteRecordRaw> = [
             {
                 path: '/archives/deepin',
                 name: 'ArchiveOne',
-                component: () => import('@/views/content/Archives/ArchiveOne.vue'),
+                component: () => import('@/views/content/archives/ArchiveOne.vue'),
             },
             {
                 path: '/archives/webassembly',
                 name: 'ArchiveTwo',
-                component: () => import('@/views/content/Archives/ArchiveTwo.vue'),
+                component: () => import('@/views/content/archives/ArchiveTwo.vue'),
             },
             {
                 path: '/archives/cpp-builtin',
                 name: 'ArchiveThree',
-                component: () => import('@/views/content/Archives/ArchiveThree.vue'),
+                component: () => import('@/views/content/archives/ArchiveThree.vue'),
             }
         ]
     },

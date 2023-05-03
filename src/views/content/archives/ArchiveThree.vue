@@ -37,7 +37,7 @@ cout << boolalpha << (typeid(test) == typeid(initializer_list<int>)); //true`"/>
 
                 <n-li>其他</n-li>
                 <text>
-                    <span class="grey-bg">std::is_constant_evaluated</span> 判断是否在编译器调用<br>
+                    <span class="grey-bg">std::is_constant_evaluated</span> 判断是否在编译期调用<br>
                     <span class="grey-bg">std::source_location</span> 获取源代码位置信息<br>
                     某些带着constexpr修饰但无法手工实现的函数，如<span class="grey-bg">constexpr std::address_of</span>
                 </text>
@@ -48,22 +48,17 @@ cout << boolalpha << (typeid(test) == typeid(initializer_list<int>)); //true`"/>
 </template>
 
 <script>
-import {NH1, NH2, NH3, NH4, NUl, NOl, NLi, NButton, NDivider, NCode, NA, NText} from "naive-ui";
+import {NH1, NH2, NUl, NLi, NDivider, NCode} from "naive-ui";
 
 export default {
     name: "ArchiveThree",
     components: {
         NH1,
         NH2,
-        // NH3,
-        // NH4,
-        // NOl,
         NUl,
         NLi,
-        // NButton,
         NCode,
-        NDivider,
-        // NText
+        NDivider
     },
 }
 </script>

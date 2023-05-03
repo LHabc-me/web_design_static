@@ -56,23 +56,18 @@ source ./emsdk_env.sh`"/>
 </template>
 
 <script>
-import {NH1, NH2, NH3, NH4, NUl, NOl, NLi, NButton, NDivider, NCode, NA, NText} from "naive-ui";
+import {NH1, NH2, NUl, NOl, NLi, NDivider, NCode} from "naive-ui";
 
 export default {
     name: "ArchiveTwo",
     components: {
         NH1,
         NH2,
-        // NH3,
-        // NH4,
         NOl,
         NUl,
         NLi,
-        // NButton,
         NCode,
-        // NA,
-        NDivider,
-        // NText
+        NDivider
     },
     setup() {
         return {

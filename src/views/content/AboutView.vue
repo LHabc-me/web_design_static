@@ -14,13 +14,12 @@
 <script>
 
 
-import {NH1, NText} from "naive-ui";
+import {NH1} from "naive-ui";
 
 export default {
     name: "AboutView",
     components: {
         NH1,
-        // NText,
     },
     setup() {
         return {}

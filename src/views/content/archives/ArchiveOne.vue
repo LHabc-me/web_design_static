@@ -87,19 +87,15 @@ sudo update-initramfs -u`"/>
 </template>
 
 <script>
-import {NH1, NH2, NH3, NH4, NUl, NOl, NLi, NButton, NDivider, NCode, NA, NText} from "naive-ui";
+import {NH1, NH2, NOl, NLi, NDivider, NCode, NA, NText} from "naive-ui";
 
 export default {
     name: "ArchiveOne",
     components: {
         NH1,
         NH2,
-        // NH3,
-        // NH4,
         NOl,
-        // NUl,
         NLi,
-        // NButton,
         NCode,
         NA,
         NDivider,

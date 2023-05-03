@@ -137,8 +137,6 @@ export default {
 #content {
   width: 100vw;
   //background: linear-gradient(#1abc9c, white);
-  //background: linear-gradient(#1abc9c, white);
-  //background-image: url("@/assets/img/118.jpg");
   background-size: cover;
   background: #ecf0f1;
 }
@@ -152,7 +150,7 @@ export default {
     display: inline-block;
     width: @left-bar-width;
     position: sticky;
-    top: 0;
+    top: 20px;
     margin: 20px;
     height: 650px;
     background: white;
@@ -203,7 +201,7 @@ export default {
 
   #pages {
     width: 100%;
-    margin-left: 50px;
+    margin-left: 30px;
     //margin-right: 20px;
 
   }

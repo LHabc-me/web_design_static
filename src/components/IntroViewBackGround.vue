@@ -45,19 +45,6 @@ export default {
 }
 
 canvas {
-  //background-image: url("@/assets/img/118.jpg");
-  //background-size: cover;
-  background: linear-gradient(black, #ecf0f1);
-}
-
-@keyframes promo-appear-animation {
-  0% {
-    transform: scale(2.0);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1.0);
-    opacity: 1;
-  }
+  background: linear-gradient(#1abc9c, #ecf0f1);
 }
 </style>
