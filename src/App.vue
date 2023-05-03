@@ -3,18 +3,16 @@
                        :locale="locale"
                        :date-locale="dateLocale"
                        :hljs="hljs">
-        <!--        <n-theme-editor>-->
         <div id="app">
             <router-view></router-view>
         </div>
-        <!--        </n-theme-editor>-->
     </n-config-provider>
 
 </template>
 
 
 <script>
-import {NConfigProvider, NThemeEditor, darkTheme} from 'naive-ui';
+import {NConfigProvider, darkTheme} from 'naive-ui';
 import {zhCN, dateZhCN} from 'naive-ui'
 import hljs from 'highlight.js/lib/core'
 import javascript from 'highlight.js/lib/languages/javascript'

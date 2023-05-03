@@ -136,9 +136,6 @@ export default {
 
 #content {
   width: 100vw;
-  //background: linear-gradient(#1abc9c, white);
-  //background: #ecf0f1;
-
   background-image: url('@/assets/img/417.jpg');
   background-size: cover;
   min-height: 100vh;
@@ -147,7 +144,6 @@ export default {
 #content-root {
   width: 80%;
   min-height: 100vh;
-  //background: #ecf0f1;
 
   #left-bar {
     display: inline-block;
@@ -205,8 +201,6 @@ export default {
   #pages {
     width: 100%;
     margin-left: 30px;
-    //margin-right: 20px;
-
   }
 
   .button-icon {

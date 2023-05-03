@@ -59,6 +59,11 @@ export default {
                     link: 'https://chtjt.github.io/'
                 },
                 {
+                    name: 'O-rz',
+                    brief: 'O-rz的博客',
+                    link: 'https://o-rz.github.io/'
+                },
+                {
                     name: 'cppquiz',
                     brief: '高难度C++题目，在线练习',
                     link: 'https://cppquiz.org/'

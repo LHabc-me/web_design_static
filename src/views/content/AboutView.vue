@@ -37,9 +37,6 @@ export default {
     name: "AboutView",
     components: {
         NH1, NUl, NLi
-    },
-    setup() {
-        return {}
     }
 }
 </script>

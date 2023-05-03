@@ -515,18 +515,6 @@ function start(element) {
         drawDisplay(target);
     }
 
-    function drawColor(target, color) {
-        colorProgram.bind();
-        gl.uniform4f(colorProgram.uniforms.color, color.r, color.g, color.b, 1);
-        blit(target);
-    }
-
-    function drawCheckerboard(target) {
-        checkerboardProgram.bind();
-        gl.uniform1f(checkerboardProgram.uniforms.aspectRatio, canvas.width / canvas.height);
-        blit(target);
-    }
-
     function drawDisplay(target) {
         let width = target == null ? gl.drawingBufferWidth : target.width;
         let height = target == null ? gl.drawingBufferHeight : target.height;
@@ -756,14 +744,6 @@ function start(element) {
         };
     }
 
-    function normalizeColor(input) {
-        return {
-            r: input.r / 255,
-            g: input.g / 255,
-            b: input.b / 255
-        };
-    }
-
     function wrap(value, min, max) {
         let range = max - min;
         if (range === 0) return min;
@@ -932,34 +912,6 @@ function start(element) {
 
     void main () {
         gl_FragColor = value * texture2D(uTexture, vUv);
-    }
-`);
-
-    const colorShader = compileShader(gl.FRAGMENT_SHADER, `
-    precision mediump float;
-
-    uniform vec4 color;
-
-    void main () {
-        gl_FragColor = color;
-    }
-`);
-
-    const checkerboardShader = compileShader(gl.FRAGMENT_SHADER, `
-    precision highp float;
-    precision highp sampler2D;
-
-    varying vec2 vUv;
-    uniform sampler2D uTexture;
-    uniform float aspectRatio;
-
-    #define SCALE 25.0
-
-    void main () {
-        vec2 uv = floor(vUv * SCALE * vec2(aspectRatio, 1.0));
-        float v = mod(uv.x + uv.y, 2.0);
-        v = v * 0.1 + 0.8;
-        gl_FragColor = vec4(vec3(v), 1.0);
     }
 `);
 
@@ -1370,8 +1322,6 @@ function start(element) {
     const blurProgram = new Program(blurVertexShader, blurShader);
     const copyProgram = new Program(baseVertexShader, copyShader);
     const clearProgram = new Program(baseVertexShader, clearShader);
-    const colorProgram = new Program(baseVertexShader, colorShader);
-    const checkerboardProgram = new Program(baseVertexShader, checkerboardShader);
     const bloomPrefilterProgram = new Program(baseVertexShader, bloomPrefilterShader);
     const bloomBlurProgram = new Program(baseVertexShader, bloomBlurShader);
     const bloomFinalProgram = new Program(baseVertexShader, bloomFinalShader);
