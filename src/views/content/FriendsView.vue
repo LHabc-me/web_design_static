@@ -50,7 +50,7 @@ export default {
                 },
                 {
                     name: 'Kina Zhang',
-                    brief: 'Kina Zhang的博客，内含有趣的CSS动画',
+                    brief: 'Kina Zhang的博客，内含有趣的JS动画',
                     link: 'https://delete-cloud.github.io/'
                 },
                 {
@@ -120,11 +120,11 @@ export default {
                 },
                 {
                     name: 'We UI',
-                    brief: '一套同微信原生视觉体验一致的基础样式库，由微信官方设计团队为微信内网页和微信小程序量身设计，令用户的使用感知更加统一。',
+                    brief: '一套同微信原生视觉体验一致的基础样式库，由微信官方设计团队为微信内网页和微信小程序量身设计，令用户的使用感知更加统一',
                     link: 'https://weui.io/'
                 }, {
                     name: 'View Design',
-                    brief: '一套同微信原生视觉体验一致的基础样式库，由微信官方设计团队为微信内网页和微信小程序量身设计，令用户的使用感知更加统一。',
+                    brief: '基于 Vue 3 的企业级 UI 组件库和中后台系统解决方案，为数万开发者服务',
                     link: 'https://www.iviewui.com/'
                 },
             ].sort((a, b) => {

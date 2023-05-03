@@ -137,8 +137,11 @@ export default {
 #content {
   width: 100vw;
   //background: linear-gradient(#1abc9c, white);
+  //background: #ecf0f1;
+
+  background-image: url('@/assets/img/417.jpg');
   background-size: cover;
-  background: #ecf0f1;
+  min-height: 100vh;
 }
 
 #content-root {

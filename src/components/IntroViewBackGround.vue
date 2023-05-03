@@ -45,6 +45,7 @@ export default {
 }
 
 canvas {
-  background: linear-gradient(#1abc9c, #ecf0f1);
+  //background: linear-gradient(#1abc9c, #ecf0f1);#76c0c9
+  background: linear-gradient(#1abc9c, #dfe8f7);
 }
 </style>
