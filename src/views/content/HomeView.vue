@@ -89,6 +89,11 @@ export default {
                     name: "基于WebGL的流体模拟",
                     brief: "用它给首页加了个流体特效",
                     link: "https://github.com/PavelDoGreat/WebGL-Fluid-Simulation/"
+                },
+                {
+                    name: "烟花特效",
+                    brief: "基于源代码修改了烟花生成数量，修复了点击一下放两次烟花的Bug",
+                    link: "https://blog.csdn.net/qq_43562785/article/details/109511585?ydreferer=aHR0cHM6Ly93d3cuYmluZy5jb20v"
                 }
             ]
         }
