@@ -8,7 +8,7 @@
                 <div id="avatar-box">
                     <n-avatar round
                               id="avatar"
-                              src="img/lhabc.jpg"
+                              :src="avatar.toString()"
                               color="transparent">
                     </n-avatar>
                 </div>
@@ -91,6 +91,7 @@ export default {
     },
     setup() {
         return {
+            avatar: require("@/assets/img/avatar.jpg"),
             connections: [
                 {
                     name: "Github",

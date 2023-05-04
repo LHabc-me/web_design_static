@@ -110,7 +110,6 @@ function clickEffect() {
     function pushBalls(count = 1, x = origin.x, y = origin.y) {
         for (let i = 0; i < count / 2; i++) {
             balls.push(new Ball(x, y));
-            console.log(x, y)
         }
     }
 
