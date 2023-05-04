@@ -1,24 +1,25 @@
-# web_design_static
+# 网页设计与网站建设
 
-## Project setup
+## 安装依赖
+
 ```
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+### 启动开发服务器
+
 ```
 yarn serve
 ```
 
-### Compiles and minifies for production
+### 构建生产环境
+
 ```
 yarn build
 ```
 
-### Lints and fixes files
+### 代码格式化
+
 ```
 yarn lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
