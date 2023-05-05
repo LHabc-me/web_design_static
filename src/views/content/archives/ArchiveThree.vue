@@ -1,5 +1,6 @@
 <template>
-    <div class="archive shadow radius">
+    <div class="archive shadow radius"
+         :style="{background: $store.state.containerBgColor}">
         <div class="archive-content">
             <n-h1>C++中编译器内建支持的标准库组件</n-h1>
             <n-divider/>
@@ -9,15 +10,15 @@
 
             <n-ul>
                 <n-li>type_traits</n-li>
-                <text>
+                <n-text>
                     <span class="grey-bg">is_union</span>、<span class="grey-bg">is_class</span>等判断类的区别的，判断是否是标准布局的，判断类的构造方式的，判断是否trivial的，判断是否是虚函数的，判断是否是空类的...
-                </text>
+                </n-text>
 
 
                 <n-li>std::initializer_list</n-li>
-                <text>
+                <n-text>
                     编译器看到被大括号包起来的东西，就会尝试将其转化成<span class="grey-bg">initializer_list</span>类型，这也无法手工实现
-                </text>
+                </n-text>
                 <n-code show-line-numbers
                         class="code-bg"
                         language="cpp"
@@ -26,21 +27,21 @@ cout << boolalpha << (typeid(test) == typeid(initializer_list<int>)); //true`"/>
 
 
                 <n-li>类型相关</n-li>
-                <text>
+                <n-text>
                     如<span class="grey-bg">std::type_info</span>
-                </text>
+                </n-text>
 
 
                 <n-li>可以实现但效率不高的</n-li>
-                <text>如<span class="grey-bg">std::make_index_sequence</span>，手动实现要实例化n个模板</text>
+                <n-text>如<span class="grey-bg">std::make_index_sequence</span>，手动实现要实例化n个模板</n-text>
 
 
                 <n-li>其他</n-li>
-                <text>
+                <n-text>
                     <span class="grey-bg">std::is_constant_evaluated</span> 判断是否在编译期调用<br>
                     <span class="grey-bg">std::source_location</span> 获取源代码位置信息<br>
                     某些带着constexpr修饰但无法手工实现的函数，如<span class="grey-bg">constexpr std::address_of</span>
-                </text>
+                </n-text>
 
             </n-ul>
         </div>
@@ -48,7 +49,7 @@ cout << boolalpha << (typeid(test) == typeid(initializer_list<int>)); //true`"/>
 </template>
 
 <script>
-import {NH1, NH2, NUl, NLi, NDivider, NCode} from "naive-ui";
+import {NH1, NH2, NUl, NLi, NDivider, NCode, NText} from "naive-ui";
 
 export default {
     name: "ArchiveThree",
@@ -58,7 +59,8 @@ export default {
         NUl,
         NLi,
         NCode,
-        NDivider
+        NDivider,
+        NText
     },
 }
 </script>
@@ -73,7 +75,6 @@ li {
 
 .archive {
   width: 100%;
-  background: white;
   margin: 20px 0;
 }
 
@@ -81,4 +82,7 @@ li {
   margin: 50px;
 }
 
+.n-text {
+  font-size: 18px;
+}
 </style>

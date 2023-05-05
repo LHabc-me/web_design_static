@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Friends</h1>
+        <n-h1 id="friends">Friends</n-h1>
         <n-h1 prefix="bar">友情链接和有趣网站，排名不分先后</n-h1>
         <n-ul>
             <n-li v-for="(item, index) in friends"
@@ -153,5 +153,10 @@ ul {
   text-decoration-color: rgba(127, 127, 127, 0.7);
 
   text-decoration-skip-ink: none;
+}
+
+#friends {
+  font-size: 30px;
+  font-weight: bold;
 }
 </style>

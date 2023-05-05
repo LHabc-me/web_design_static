@@ -1,14 +1,14 @@
 <template>
     <div>
-        <h1>Home</h1>
+        <n-h1 id="home">Home</n-h1>
         <n-h2>欢迎来到LHabc的博客网站！</n-h2>
         <n-h3 id="site-pv-container">
             网站总访问量：
-            <span id="site-pv"
-                  ref="site-pv">
+            <n-text id="site-pv"
+                    type="primary">
                 <n-spin id="site-pv-spin"
                         size="small"/>
-            </span>
+            </n-text>
         </n-h3>
 
         <n-h3 prefix="bar">网站结构</n-h3>
@@ -38,7 +38,7 @@
 
 <script>
 
-import {NH2, NH3, NUl, NLi, NButton, NSpin} from "naive-ui";
+import {NH1, NText, NH2, NH3, NUl, NLi, NButton, NSpin} from "naive-ui";
 import {goUrl} from "@/assets/scripts/util";
 
 export default {
@@ -47,15 +47,14 @@ export default {
         goUrl
     },
     components: {
+        NText,
+        NH1,
         NH2,
         NH3,
         NUl,
         NLi,
         NButton,
         NSpin
-    },
-    mounted() {
-        console.log(window.site_pv)
     },
     setup() {
         return {
@@ -116,14 +115,9 @@ export default {
 <style scoped>
 #site-pv-container {
     margin-top: -20px;
-
-    #site-pv {
-        color: #2080f0;
-    }
 }
 
 h1 {
-    color: black;
     font-weight: bold;
     font-size: 30px;
 }
@@ -144,5 +138,10 @@ ul {
     * {
         font-size: 18px;
     }
+}
+
+#home {
+    font-size: 30px;
+    font-weight: bold;
 }
 </style>

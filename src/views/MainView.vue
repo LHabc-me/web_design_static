@@ -2,6 +2,7 @@
     <div layout="column center-center">
         <IntroView></IntroView>
         <ContentView></ContentView>
+
     </div>
 </template>
 

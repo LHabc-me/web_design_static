@@ -1,6 +1,6 @@
 <template>
     <div class="full">
-        <h1>Archives</h1>
+        <n-h1 id="archives">Archives</n-h1>
         <div layout="column center-left">
             <n-card class="archive-card shadow radius"
                     @click="$router.push('/archives/' + item.name)"
@@ -20,7 +20,7 @@
                            v-for="(tag, index) in item.tags"
                            :key="index"
                            size="small"
-                           type="info">
+                           type="primary">
                         {{ tag }}
                     </n-tag>
                 </div>
@@ -31,13 +31,14 @@
 
 <script>
 
-import {NCard, NTag} from "naive-ui";
+import {NH1, NCard, NTag} from "naive-ui";
 
 export default {
     name: "ArchivesView",
     components: {
         NCard,
-        NTag
+        NTag,
+        NH1
     },
     setup() {
         return {
@@ -103,5 +104,10 @@ export default {
   .tag {
     margin: 0 5px;
   }
+}
+
+#archives {
+  font-size: 30px;
+  font-weight: bold;
 }
 </style>

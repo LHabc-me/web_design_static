@@ -1,5 +1,5 @@
 <template>
-    <n-config-provider :theme-overrides="themeOverrides"
+    <n-config-provider :theme-overrides="$store.state.theme"
                        :locale="locale"
                        :date-locale="dateLocale"
                        :hljs="hljs">
@@ -7,12 +7,11 @@
             <router-view></router-view>
         </div>
     </n-config-provider>
-
 </template>
 
 
 <script>
-import {NConfigProvider, darkTheme} from 'naive-ui';
+import {NConfigProvider} from 'naive-ui';
 import {zhCN, dateZhCN} from 'naive-ui'
 import hljs from 'highlight.js/lib/core'
 import javascript from 'highlight.js/lib/languages/javascript'
@@ -23,18 +22,10 @@ hljs.registerLanguage('javascript', javascript);
 hljs.registerLanguage('bash', bash);
 hljs.registerLanguage('cpp', cpp);
 
-const themeOverrides = {
-    common: {
-        "primaryColor": "#2080f0FF",
-        "primaryColorHover": "#4098FCFF",
-        "primaryColorPressed": "#1060C9FF",
-        "primaryColorSuppl": "#4098FCFF"
-    }
-}
+
 export default {
     components: {
-        NConfigProvider,
-        // NThemeEditor
+        NConfigProvider
     },
     methods: {
         tryHideScroll() {
@@ -70,16 +61,13 @@ export default {
             rule: -1,
             styleTag: document.createElement('style'),
             styleSheet: null,
-            themeOverrides,
             locale: zhCN,
             dateLocale: dateZhCN,
-            darkTheme,
-            hljs
+            hljs,
         }
     }
 }
 </script>
 <style lang="less">
-
 </style>
 

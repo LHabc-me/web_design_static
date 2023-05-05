@@ -1,10 +1,12 @@
 <template>
     <div id="content"
-         layout="row center-center">
+         layout="row center-center"
+         :style="{background:`${$store.state.contentBgColor} url(${$store.state.contentBgImg}) fixed top/cover no-repeat`}">
         <div id="content-root"
              layout="row top-left">
             <div id="left-bar"
-                 class="shadow radius">
+                 class="shadow radius"
+                 :style="{background: $store.state.containerBgColor}">
                 <div id="avatar-box">
                     <n-avatar round
                               id="avatar"
@@ -12,8 +14,8 @@
                               color="transparent">
                     </n-avatar>
                 </div>
-                <div id="my-name">
-                    <h1>LHabc</h1>
+                <div>
+                    <n-h1 id="my-name">LHabc</n-h1>
                 </div>
                 <div id="left-bar-connections"
                      layout="row center-center">
@@ -48,6 +50,16 @@
             </div>
             <div id="pages"
                  layout="column top-left">
+                <div id="customize">
+                    <n-button circle
+                              class="button"
+                              :bordered="false"
+                              @click="isCustomizeActive = true">
+                        <n-icon class="button-icon">
+                            <component :is="Whiteboard48Regular"/>
+                        </n-icon>
+                    </n-button>
+                </div>
                 <transition name="fade"
                             mode="out-in">
                     <router-view v-slot="{ Component }">
@@ -63,34 +75,107 @@
                     :bottom="40">
         </n-back-top>
 
+        <n-drawer v-model:show="isCustomizeActive"
+                  :width="220">
+            <n-drawer-content>
+                <template #header>
+                    修改网站样式和主题
+                </template>
+                <div layout="column center-center">
+                    <n-switch v-model:value="isSwitchOn"
+                              :rail-style="railStyle"
+                              unchecked-value="light"
+                              checked-value="dark"
+                              :rubber-band="false"
+                              :on-change="onBaseThemeChange">
+                        <template #checked>
+                            深色背景
+                        </template>
+                        <template #unchecked>
+                            浅色背景
+                        </template>
+                    </n-switch>
+                    <n-color-picker size="small"
+                                    :default-value="$store.state.theme.common.primaryColor"
+                                    :on-update:value="onColorChange"
+                                    id="customize-color-picker">
+                        <template v-slot:label>
+                            修改主题色
+                        </template>
+                    </n-color-picker>
+                </div>
+                <template #footer>
+                    <n-button text
+                              @click="isCustomizeActive = false">
+                        关闭
+                    </n-button>
+                </template>
+            </n-drawer-content>
+        </n-drawer>
     </div>
 </template>
 
 <script>
-import {NAvatar, NButton, NBackTop} from "naive-ui";
+import {NH1, NAvatar, NButton, NBackTop, NColorPicker, NDropdown, NSwitch, NDrawer, NDrawerContent} from "naive-ui";
 import Home from '@vicons/tabler/Home'
 import Friends from '@vicons/tabler/Friends'
 import Archive from '@vicons/tabler/Archive'
 import User from '@vicons/tabler/User'
 import LogoGithub from "@vicons/ionicons5/LogoGithub";
 import MailOutline from "@vicons/ionicons5/MailOutline";
+import Whiteboard48Regular from "@vicons/fluent/Whiteboard48Regular";
 import {goUrl} from "@/assets/scripts/util";
 import {clickEffect} from "@/assets/scripts/clickEffect";
+import {ref} from "vue";
 
 export default {
     name: 'ContentView',
     components: {
+        NH1,
         NAvatar,
         NButton,
-        NBackTop
+        NBackTop,
+        NColorPicker,
+        NDropdown,
+        NSwitch,
+        NDrawer,
+        NDrawerContent
     },
     methods: {
         goUrl,
-    }, mounted() {
-        clickEffect()
+        onColorChange(color) {
+            this.$store.commit("changeColor", color);
+        },
+        onBaseThemeChange(theme) {
+            this.$store.commit('changeBaseTheme', theme);
+        }
+    },
+    mounted() {
+        clickEffect();
     },
     setup() {
         return {
+            railStyle: ({
+                            focused,
+                            checked
+                        }) => {
+                const style = {}
+                if (checked) {
+                    style.background = '#3a403c'
+                    if (focused) {
+                        style.boxShadow = '0 0 0 2px #d0305040'
+                    }
+                } else {
+                    style.background = '#2080f0'
+                    if (focused) {
+                        style.boxShadow = '0 0 0 2px #2080f040'
+                    }
+                }
+                return style
+            },
+            isCustomizeActive: ref(false),
+            isSwitchOn: ref(false),
+            Whiteboard48Regular,
             avatar: require("@/assets/img/avatar.jpg"),
             connections: [
                 {
@@ -127,7 +212,8 @@ export default {
                 },
             ]
         }
-    }
+    },
+
 }
 </script>
 
@@ -137,8 +223,6 @@ export default {
 
 #content {
   width: 100vw;
-  background-image: url('@/assets/img/417.jpg');
-  background-size: cover;
   min-height: 100vh;
 }
 
@@ -153,14 +237,13 @@ export default {
     top: 20px;
     margin: 20px;
     height: 650px;
-    background: white;
 
     #my-name {
       user-select: none;
       text-align: center;
-      font-size: 1.8rem;
-      font-weight: bold;
       margin-bottom: 5px;
+      font-size: 30px;
+      font-weight: bold;
     }
 
     #avatar-box {
@@ -211,8 +294,6 @@ export default {
   }
 }
 
-#content-back-top {
-}
 
 .fade-enter-active,
 .fade-leave-active {
@@ -229,5 +310,35 @@ export default {
   opacity: 0;
 }
 
+#customize {
+  position: absolute;
+  display: flow;
+  top: calc(100vh + 40px);
+  right: 40px;
+}
 
+#customize-color-picker {
+  height: 150px;
+  width: 150px;
+  margin-top: 30px;
+}
+
+#content-bg-img {
+  position: absolute;
+  top: 100vh;
+  left: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+}
+
+#content-bg {
+  position: absolute;
+  top: 100vh;
+  left: 0;
+  z-index: -2;
+  //width: 100%;
+  //height: 100%;
+}
 </style>

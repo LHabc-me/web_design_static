@@ -3,7 +3,9 @@
          class="full-screen"
          layout="row center-center">
         <canvas id="background-canvas"
-                class="full-screen">
+                class="full-screen"
+                :style="{background: 'linear-gradient('+
+                $store.state.introBgColorFrom+','+$store.state.introBgColorTo+')'}">
         </canvas>
         <slot class="content"
               self="center">
@@ -42,10 +44,5 @@ export default {
 .content {
   position: absolute;
   z-index: 1;
-}
-
-canvas {
-  //background: linear-gradient(#1abc9c, #ecf0f1);#76c0c9
-  background: linear-gradient(#1abc9c, #dfe8f7);
 }
 </style>
